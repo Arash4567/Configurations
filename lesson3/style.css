@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+}
+body {
+    /* background-color: aqua;
+    background-image: url("./images/17125.jpg"); */
+    /* background-repeat: no-repeat; */
+    /* background-repeat: repeat-y; */
+    /* background-repeat: no-repeat;
+    background-attachment: fixed; */
+    /* background-position: center; */
+    /* background-position: top; */
+    /* background-position: right; */
+    /* background-position: left; */
+    /* background-size: cover; */
+    background: #fff;
+    /* opacity: 0.5; */
+}
+
+div>span {
+    color: #000;
+    padding: 20px 200px;
+    margin: 30px;
+    background: yellow;
+    border: red solid 10px;
+    border-style: none double;
+    border-radius: 15px;
+}
