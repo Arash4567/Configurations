@@ -1,0 +1,26 @@
+a:link {
+    text-decoration: none;
+    color: green;
+}
+a:active {
+    color: yellow;
+}
+a:visited {
+    color: brown;
+}
+body {
+    /* background-image: url(./image/image.jpg); */
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+    /* background-repeat: repeat-x; */
+    background-position: center;
+
+}
+table, th, td{
+    border: 5px double black;
+
+    border-collapse: collapse;
+}
+td {
+    background-color: green;
+}

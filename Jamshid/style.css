@@ -1,0 +1,17 @@
+.box {
+    margin: 10px;
+    background-color: burlywood;
+    border: 50px solid red;
+    box-sizing: border-box;
+}
+.box1 {
+    padding: 250px 100px;
+    margin: 10px;
+    background-color: burlywood;
+    border: 50px solid red;
+}
+h1 {
+    font-size: 10vh;
+    padding: 250px 100px;
+
+}
