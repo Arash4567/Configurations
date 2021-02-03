@@ -1,0 +1,45 @@
+a {
+    color: aqua;
+    text-decoration: none;
+}
+/* a:visited {
+    color: crimson;
+} */
+a:hover {
+    color: blue;
+}
+a:active {
+    color: yellow;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* list-style-type: square;
+    list-style-position: inside; */
+    /* list-style: square outside url(./check.png); */
+}
+ol {
+    list-style-type: upper-alpha;
+}
+
+tr,th,td {
+    border: 1px dashed red;
+    border-collapse: collapse;
+    text-align: center;
+    height: 50px;
+    vertical-align: bottom;
+
+}
+table {
+   width: 100%;
+    /* border: 1px dotted red; */
+    
+}
+section {
+    overflow-y: auto;
+    height: 50vh;
+}
+
+

@@ -8,19 +8,12 @@ a:active {
 a:visited {
     color: brown;
 }
-body {
-    /* background-image: url(./image/image.jpg); */
-    /* background-size: cover; */
-    background-repeat: no-repeat;
-    /* background-repeat: repeat-x; */
-    background-position: center;
 
+th, td, tr{
+    border: 1px solid black;
 }
-table, th, td{
-    border: 5px double black;
-
-    border-collapse: collapse;
-}
-td {
-    background-color: green;
+table {
+    width: 500px;
+    height: 500px;
+    border: 1px dotted red;
 }
