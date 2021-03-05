@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Display a popup on click</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <style>
+        .mapboxgl-popup {
+            max-width: 400px;
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <div id="map"></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYXJhc2g0NTY3IiwiYSI6ImNrbGt3MGRtZDA4dmIycG13a2Q5eHRmMWEifQ.IOLvLaXlq8x-0ZlmnTEi-Q';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/arash4567/cklkxfqwi0mxv17lnogio793l',
+            center: [60.63333, 41.55],
+            zoom: 10
+        });
+        map.on('load', function () {
+            map.addSource('places', {
+                'type': 'geojson',
+                'data':
+                {
+                    "place_name": "Ургенч, Xorazm, Uzbekistan",
+                    "matching_place_name": "Urgench, Xorazm, Uzbekistan",
+                    "bbox": [
+                        60.568466,
+                        41.522458,
+                        60.671893,
+                        41.597342
+                    ],
+                    "text": "Ургенч",
+                    "matching_text": "Urgench",
+                    "context": [
+                        {
+                            "id": "region.9959708777569750",
+                            "wikidata": "Q487561",
+                            "short_code": "UZ-XO",
+                            "text": "Xorazm"
+                        },
+                        {
+                            "id": "country.7200854903291530",
+                            "wikidata": "Q265",
+                            "short_code": "uz",
+                            "text": "Uzbekistan"
+                        }
+                    ],
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            60.63333,
+                            41.55
+                        ]
+                    },
+                    "place_type": ["place"],
+                    "properties": {
+                        "wikidata": "Q472925",
+                        "place_name": "Ургенч, Xorazm, Uzbekistan"
+                    },
+                    "center": [60.63333, 41.55],
+                    "relevance": 1,
+                    "type": "Feature"
+                }
+
+            });
+            // Add a layer showing the places.
+            map.addLayer({
+                'id': 'places',
+                'type': 'symbol',
+                'source': 'places',
+                'layout': {
+                    'icon-image': '{icon}-15',
+                    'icon-allow-overlap': true
+                }
+            });
+
+            // When a click event occurs on a feature in the places layer, open a popup at the
+            // location of the feature, with description HTML from its properties.
+            map.on('click', 'places', function (e) {
+                var coordinates = e.features[0].geometry.coordinates.slice();
+                var description = e.features[0].properties.description;
+
+                // Ensure that if the map is zoomed out such that multiple
+                // copies of the feature are visible, the popup appears
+                // over the copy being pointed to.
+                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                }
+
+                new mapboxgl.Popup()
+                    .setLngLat(coordinates)
+                    .setHTML(description)
+                    .addTo(map);
+            });
+
+            // Change the cursor to a pointer when the mouse is over the places layer.
+            map.on('mouseenter', 'places', function () {
+                map.getCanvas().style.cursor = 'pointer';
+            });
+
+            // Change it back to a pointer when it leaves.
+            map.on('mouseleave', 'places', function () {
+                map.getCanvas().style.cursor = '';
+            });
+        });
+    </script>
+
+</body>
+
+</html>
