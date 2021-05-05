@@ -7,7 +7,8 @@
     <title>Dropdown</title>
   </head>
   <body>
-    <select id="purpose">
+    <select id="points">
+      <option value="" selected>Baho...</option>
       <option value="0">0</option>
       <option value="10">10</option>
       <option value="20">20</option>
@@ -20,17 +21,7 @@
       <option value="90">90</option>
       <option value="100">100</option>
     </select>
-    <p style="display: none" id="point0">0</p>
-    <p style="display: none" id="point10">10</p>
-    <p style="display: none" id="point20">20</p>
-    <p style="display: none" id="point30">30</p>
-    <p style="display: none" id="point40">40</p>
-    <p style="display: none" id="point50">50</p>
-    <p style="display: none" id="point60">60</p>
-    <p style="display: none" id="point70">70</p>
-    <p style="display: none" id="point80">80</p>
-    <p style="display: none" id="point90">90</p>
-    <p style="display: none" id="point100">1000</p>
+    <p id="point"></p>
   </body>
   <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -39,51 +30,9 @@
   ></script>
   <script>
     $(document).ready(function () {
-      $("#purpose").on("change", function () {
-        if (this.value == "0") {
-          $("#point0").show();
-          $("#purpose").hide();
-        }
-        if (this.value == "10") {
-          $("#point10").show();
-          $("#purpose").hide();
-        }
-        if (this.value == "20") {
-          $("#point20").show();
-          $("#purpose").hide();
-        }
-        if (this.value == "30") {
-          $("#point30").show();
-          $("#purpose").hide();
-        }
-        if (this.value == "40") {
-          $("#point40").show();
-          $("#purpose").hide();
-        }
-        if (this.value == "50") {
-          $("#point50").show();
-          $("#purpose").hide();
-        }
-        if (this.value == "60") {
-          $("#point60").show();
-          $("#purpose").hide();
-        }
-        if (this.value == "70") {
-          $("#point70").show();
-          $("#purpose").hide();
-        }
-        if (this.value == "80") {
-          $("#point80").show();
-          $("#purpose").hide();
-        }
-        if (this.value == "90") {
-          $("#point90").show();
-          $("#purpose").hide();
-        }
-        if (this.value == "100") {
-          $("#point100").show();
-          $("#purpose").hide();
-        }
+      $("#points").on("change", function () {
+            $("#point").text(this.value);
+            $("#points").hide();
       });
     });
   </script>
